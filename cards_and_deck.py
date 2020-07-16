@@ -58,11 +58,11 @@ def draw_card(hand, deck):
     deck.pop(deck.index(hand[-1]))
     return hand
 
-def winner(comps, users):         
+def winner(comps, users, comps_hand, users_hand):         
     if comps > users:
         print("Dealer win")
         return 0,1
-    elif comps_total < users_total:
+    elif comps < users:
         print("You win")
         return 1,0
     else:
