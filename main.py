@@ -14,6 +14,7 @@ def blackjack():
     turn = 1
     while users_total<=21:
         if users_total == 21 or (users_total_ace_high) ==21:
+            print(users_hand)
             print("21!")
             return 1,0
         else:    
@@ -42,42 +43,44 @@ def blackjack():
     else:
         while comps_total<=21:
             if comps_total == 21 or (comps_total_ace_high) ==21:
+                print(comps_hand)
                 print("Dealer, 21!")
                 return 0,1
             else:    
                 print(comps_hand)
-                if comps_total <=16 and (comps_total_ace_high) <= 18):
+                if comps_total <=16 and (comps_total_ace_high) <= 18:
                     comps_hand = cards_and_deck.draw_card(comps_hand, deck)
                     comps_total = cards_and_deck.hand_total(comps_hand)
                     comps_ace_high = cards_and_deck.check_aces(comps_hand) *10
                     comps_total_ace_high = comps_total+comps_ace_high
-                    print(f"Dealer total is {comps_total}")
+                    print(f"Dealer draws")
                 else:
+                    print(f"Dealer total is {comps_total}")
                     break
     if comps_total > 21:
         print(comps_hand)
         print("Dealer Bust!")
         return 1,0
     else:
-        if comps_total_ace_high > 21:
-            if users_total_ace_high > 21:
-                if comps_total > users_total:
-                    print("Dealer win")
-                    return 0,1
-                elif comps_total < users_total:
-                    print("You win")
-                    return 1,0
-                else:
-                    if len(comps_hand) > len(users_hand):
-                        print("You win")
-                        return 1,0
-                    else:
-                        print("Dealer win")
-                        return 0,1
-        
-    
+        if comps_total_ace_high>21 or comps_ace_high ==0:
+            if users_total_ace_high > 21 or users_ace_high == 0:
+                who_won = cards_and_deck.winner(comps_total, users_total)
+                return who_won
+            else:
+                who_won = cards_and_deck.winner(comps_total, users_total_ace_high)
+                return who_won
+        else:
+            if users_total_ace_high > 21 or users_ace_high == 0:
+                who_won = cards_and_deck.winner(comps_total_ace_high, users_total)
+                return who_won
+            else:
+                who_won = cards_and_deck.winner(comps_total_ace_high, users_total_ace_high)
+                return who_won
+
+
     print(users_hand)
     print(users_total)
     print(comps_hand)
-
-blackjack()
+value = []
+value = blackjack()
+print(value)
