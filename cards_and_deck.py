@@ -1,4 +1,6 @@
 import random
+from termcolor import cprint
+
 
 cards = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "J", "Q", "K"]
 suits = ["♠", "♥", "♣", "♦"]
@@ -60,17 +62,17 @@ def draw_card(hand, deck):
 
 def winner(comps, users, comps_hand, users_hand):         
     if comps > users:
-        print("Dealer win")
+        cprint("Dealer win", "white", "on_blue")
         return 0,1
     elif comps < users:
-        print("You win")
+        cprint("You win", "white", "on_blue")
         return 1,0
     else:
         if len(comps_hand) > len(users_hand):
-            print("You win")
+            cprint("You win", "white", "on_blue")
             return 1,0
         else:
-            print("Dealer win")
+            cprint("Dealer win", "white", "on_blue")
             return 0,1
 
 

@@ -1,10 +1,20 @@
+import cards_and_deck
+
 def cards_display_in_game(uh, ch, users_display="yes", dealers_display = "yes"):
     dealers_total_is = dealers_display
     users_total_is = users_display
     if dealers_display == "yes":
         hd="  "
+        dealers_total_is = f"{cards_and_deck.value(ch[1])} and ???"
     else:
         hd=ch[0]
+        total= 0
+        count =0
+        while count < len(ch):
+            total += cards_and_deck.value(ch[count])
+            count+=1
+        dealers_total_is = total
+
     if len(uh)==2 and len(ch) == 2:
         print(f"""
  ____     ____
