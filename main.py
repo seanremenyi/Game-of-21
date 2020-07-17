@@ -1,7 +1,12 @@
+#! /usr/sbin/python
+
 import cards_and_deck
 import drawings
 from termcolor import cprint
 import os
+import sys
+
+
 
 ##This is the main function to play the game
 ##It also tracks scores and ask for rematches
@@ -133,5 +138,9 @@ def blackjack():
                 who_won = cards_and_deck.winner(comps_total, users_total, comps_hand, users_hand)
                 return who_won
 
-match()
-
+if "--help" in sys.argv:
+    print("Placeholder intrustions")
+elif "--secret" in sys.argv:
+    print("secret message")
+else:
+    match()
