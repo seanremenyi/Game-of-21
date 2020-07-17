@@ -1,10 +1,10 @@
 import random
 from termcolor import cprint
 
-
+###Cards and Suits
 cards = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "J", "Q", "K"]
 suits = ["♠", "♥", "♣", "♦"]
-
+###Creates a list of each possible card
 def decks():
     deck = []
     idv_card = 0
@@ -14,6 +14,7 @@ def decks():
             deck.append(idv_card)
     return deck
 
+###Deals out the hands randomly, simulating shuffling and removes the card from the deck to avoid doubles
 def hands_dealt(deck):
     hand = []
     count = 0
@@ -21,8 +22,9 @@ def hands_dealt(deck):
         hand.append(random.choice(deck))
         deck.pop(deck.index(hand[-1]))
         count+=1
-    return hand 
+    return hand
 
+###Returns the value of each card
 def value(card):
     if card[0] == "A":
         return 1
@@ -35,6 +37,7 @@ def value(card):
     else:
         return int(card[0])
 
+###Check for aces
 def check_aces(hand):
     count = 0
     for items in hand:
@@ -42,12 +45,14 @@ def check_aces(hand):
             count+=1
     return count
 
+###Strip a hand from its suits return a list of only its values
 def only_values(hand):
     num_values = []
     for items in hand:
         num_values.append(value(items))
     return num_values 
 
+###Get the total of a hand using the only_values helper function
 def hand_total(hand):
     total = 0
     get_values = only_values(hand)
@@ -55,25 +60,31 @@ def hand_total(hand):
         total += items
     return total
 
+###Draws a card from the deck and removes said card from the deck to avoid doubles
 def draw_card(hand, deck):
     hand.append(random.choice(deck))
     deck.pop(deck.index(hand[-1]))
     return hand
 
+###Declares winner and displays on screen and adds points to the total score
 def winner(comps, users, comps_hand, users_hand):         
     if comps > users:
-        cprint("Dealer win", "white", "on_blue")
+        cprint("Dealer win", "red", "on_yellow")
         return 0,1
     elif comps < users:
-        cprint("You win", "white", "on_blue")
+        cprint("You win", "red", "on_yellow")
         return 1,0
     else:
-        if len(comps_hand) > len(users_hand):
-            cprint("You win", "white", "on_blue")
-            return 1,0
+        if comps==21:
+            if len(comps_hand) > len(users_hand):
+                cprint("You win with less cards", "red", "on_yellow")
+                return 1,0
+            else:
+                cprint("Dealer wins with less cards", "red", "on_yellow")
+                return 0,1
         else:
-            cprint("Dealer win", "white", "on_blue")
-            return 0,1
+            cprint("Nothing lost, Nothing gained, its a tie", "red", "on_yellow")
+            return 0,0
 
 
 

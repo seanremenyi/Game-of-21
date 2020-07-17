@@ -1,11 +1,15 @@
 import cards_and_deck
 
+###Display the board, drawings for possible hand sizes with coressponding cards
+###Display total
 def cards_display_in_game(uh, ch, users_display="yes", dealers_display = "yes"):
     dealers_total_is = dealers_display
     users_total_is = users_display
     if dealers_display == "yes":
+###Dealers hidden card during play
         hd="  "
         dealers_total_is = f"{cards_and_deck.value(ch[1])} and ???"
+###Dealers cards shown after play    
     else:
         hd=ch[0]
         total= 0
@@ -449,5 +453,4 @@ Your Hand:                   Your Total = {users_total_is}
 |____|   |____|   |____|   |____|   |____|   |____|   |____|              """)
     return ""
 
-# hand = ['2♥', '4♦']
-# print(cards_display_in_game(hand))
+
