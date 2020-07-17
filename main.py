@@ -55,11 +55,11 @@ def blackjack():
                 if users_input == "Draw" or users_input == "Hold":
                     break
                 else:
-                    
                     os.system('clear')
                     drawings.cards_display_in_game(users_hand, comps_hand, users_display, dealers_display = "yes")
                     users_input = input("Can only choose Draw or Hold \n")
             if users_input == "Draw":
+                os.system('clear')
                 users_hand = cards_and_deck.draw_card(users_hand, deck)
                 users_total = cards_and_deck.hand_total(users_hand)
                 users_ace_high = cards_and_deck.check_aces(users_hand) *10
@@ -67,18 +67,22 @@ def blackjack():
             else:
                 break
     if users_total > 21:
+        os.system('clear')
         drawings.cards_display_in_game(users_hand, comps_hand, users_display, dealers_display = "yes")
-        cprint("You Bust", "white", "on_red")
+        cprint("Woops! You Bust!", "white", "on_red")
         return 0,1
     else:
+        continue_the_game_three = input("Now the dealers go")
         while comps_total<=21:
             if comps_total == 21 or (comps_total_ace_high) ==21:
+                os.system('clear')
                 drawings.cards_display_in_game(users_hand, comps_hand, users_display, dealers_display = "no")
                 cprint("Dealer, 21!", "white", "on_blue")
                 return 0,1
             else:    
                 drawings.cards_display_in_game(users_hand, comps_hand, users_display, dealers_display = "yes")
                 if comps_total <=16 and (comps_total_ace_high) <= 18:
+                    os.system('clear')
                     comps_hand = cards_and_deck.draw_card(comps_hand, deck)
                     comps_total = cards_and_deck.hand_total(comps_hand)
                     comps_ace_high = cards_and_deck.check_aces(comps_hand) *10
@@ -88,8 +92,9 @@ def blackjack():
                     
                     break
     if comps_total > 21:
+        os.system('clear')
         drawings.cards_display_in_game(users_hand, comps_hand, users_display, dealers_display = "no")
-        cprint("Dealer Bust!", "white", "on_red")
+        cprint("Woops, Dealer Drew and went Bust!", "white", "on_red")
         return 1,0
     else:
         os.system('clear')
