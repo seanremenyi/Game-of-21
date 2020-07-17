@@ -1,17 +1,25 @@
 import cards_and_deck
 import drawings
 from termcolor import cprint
+import os
+
 
 def match():
-    want_to_play = input("Want to play BlackJack?")
+    
+    #######try:
+    
+    want_to_play = input("Want to play BlackJack?\n")
     user_games = 0
     comp_games = 0
     while want_to_play =="yes":
+        
         points = blackjack()
         user_games += points[0]
         comp_games += points[1]
+        continue_the_game_one = input("")
+        os.system('clear')
         cprint(f"So far it's your {user_games} games to my {comp_games} games", "red","on_yellow")
-        want_to_play = input("Rematch?")
+        want_to_play = input("Rematch?\n")
     cprint("Goodbye", "white", "on_blue")
     
 
@@ -30,22 +38,26 @@ def blackjack():
     comps_total = cards_and_deck.hand_total(comps_hand)
     comps_ace_high = cards_and_deck.check_aces(comps_hand) *10
     comps_total_ace_high=comps_total+comps_ace_high
+    continue_the_game_two = input("Lets do this")
     while users_total<=21:
         if users_total == 21 or (users_total_ace_high) ==21:
             drawings.cards_display_in_game(users_hand, comps_hand, users_display, dealers_display = "yes")
-            cprint("You got 21!", "white", "on_blue")
+            cprint("\nYou got 21 already!", "white", "on_blue")
             return 1,0
         else:    
             if users_ace_high == 0 or (users_total_ace_high >21):
-                users_display = f"Your total is {users_total}"
+                users_display = f"\nYour total is {users_total}"
             else:
-                users_display = f"Your total is either {users_total} or {users_total_ace_high}"
+                users_display = f"\nYour total is either {users_total} or {users_total_ace_high}"
             drawings.cards_display_in_game(users_hand, comps_hand, users_display, dealers_display = "yes")
-            users_input = input("Draw or Hold \n")
+            users_input = input("\nDraw or Hold \n")
             while True:
                 if users_input == "Draw" or users_input == "Hold":
                     break
                 else:
+                    
+                    os.system('clear')
+                    drawings.cards_display_in_game(users_hand, comps_hand, users_display, dealers_display = "yes")
                     users_input = input("Can only choose Draw or Hold \n")
             if users_input == "Draw":
                 users_hand = cards_and_deck.draw_card(users_hand, deck)
@@ -80,9 +92,10 @@ def blackjack():
         cprint("Dealer Bust!", "white", "on_red")
         return 1,0
     else:
-        cprint("Lets see what we've got", "white", "on_blue")
+        os.system('clear')
+        cprint("\nLets see what we've got", "white", "on_blue")
         drawings.cards_display_in_game(users_hand, comps_hand, users_display, dealers_display = "no")
-        cprint(f"Dealer total is {comps_total}, {users_display}", "white", "on_blue")
+        cprint(f"\nDealer total is {comps_total}, {users_display}", "white", "on_blue")
         if comps_total_ace_high>21 or comps_ace_high ==0:
             if users_total_ace_high > 21 or users_ace_high == 0:
                 who_won = cards_and_deck.winner(comps_total, users_total, comps_hand, users_hand)
@@ -99,3 +112,5 @@ def blackjack():
                 return who_won
 
 match()
+# system clear or sysclear
+# txt file
