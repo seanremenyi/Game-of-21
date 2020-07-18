@@ -8,15 +8,34 @@ import sys
 
 
 
+
+
+
+
+####Dealer Aces
+######try/except
+#####flags
+#####rules
+#####instructions
+
+
+
+
+
+
+
+
+
+
 ##This is the main function to play the game
 ##It also tracks scores and ask for rematches
 def match():
-    want_to_play = input("Want to play BlackJack?\n")
+    want_to_play = input("Want to play twenty_one? (Donn't worry, no money involved)\n")
     user_games = 0
     comp_games = 0
     while want_to_play =="yes":     
-##BlackJack returns points for user and comp and is tracked
-        points = blackjack()
+##twenty_one returns points for user and comp and is tracked
+        points = twenty_one()
         user_games += points[0]
         comp_games += points[1]
         continue_the_game_one = input("")
@@ -25,8 +44,8 @@ def match():
         want_to_play = input("Rematch?\n")
     cprint("Goodbye", "white", "on_blue")
     
-### This is the rules of play of blackjack
-def blackjack():
+### This is the rules of play of twenty_one
+def twenty_one():
     ##creates deck
     deck = cards_and_deck.decks()
     ##users hand/total/check for aces/score if aces/display to screen
@@ -99,7 +118,7 @@ def blackjack():
             else:    
     ##Dealers logic, only hits if hand is less than 16
                 drawings.cards_display_in_game(users_hand, comps_hand, users_display, dealers_display = "yes")
-                if comps_total <=16 and (comps_total_ace_high) <= 18:
+                if comps_total <=16 or (comps_total_ace_high) <= 18:
                     os.system('clear')
     ##When dealer hits, update hand/total/display/deck
                     comps_hand = cards_and_deck.draw_card(comps_hand, deck)
@@ -113,7 +132,7 @@ def blackjack():
     if comps_total > 21:
         os.system('clear')
         drawings.cards_display_in_game(users_hand, comps_hand, users_display, dealers_display = "no")
-        cprint("Woops, Dealer Drew and went Bust!", "white", "on_red")
+        cprint("\nWoops, Dealer Drew and went Bust!", "white", "on_red")
         return 1,0
     else:
     ##Display/count cards/again input to control pace by user

@@ -2,7 +2,7 @@ import cards_and_deck
 
 ###Display the board, drawings for possible hand sizes with coressponding cards
 ###Display total
-def cards_display_in_game(uh, ch, users_display="yes", dealers_display = "yes"):
+def cards_display_in_game(uh, ch, users_display, dealers_display = "yes"):
     dealers_total_is = dealers_display
     users_total_is = users_display
     if dealers_display == "yes":
