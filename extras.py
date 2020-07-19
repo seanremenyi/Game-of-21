@@ -1,4 +1,4 @@
-
+###rules and instructions to be printed with the --help tag
 def help():
     print("""
 Help
