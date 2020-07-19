@@ -5,7 +5,7 @@ import drawings
 from termcolor import cprint
 import os
 import sys
-
+import extras
 
 
 
@@ -31,7 +31,7 @@ import sys
 ##It also tracks scores and ask for rematches
 def match():
     want_to_play = input("Want to play twenty_one? (Donn't worry, no money involved)\n")
-    user_games = 15
+    user_games = 0
     comp_games = 0
     while want_to_play =="yes":     
 ##twenty_one returns points for user and comp and is tracked
@@ -163,7 +163,7 @@ def twenty_one():
                 return who_won
 
 if "--help" in sys.argv:
-    print("Placeholder intrustions")
+    print("extras.help()")
 elif "--secret" in sys.argv:
     print("secret message")
 else:
