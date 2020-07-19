@@ -14,6 +14,7 @@ def decks():
             deck.append(idv_card)
     return deck
 
+
 ###Deals out the hands randomly, simulating shuffling and removes the card from the deck to avoid doubles
 def hands_dealt(deck):
     hand = []
@@ -23,6 +24,7 @@ def hands_dealt(deck):
         deck.pop(deck.index(hand[-1]))
         count+=1
     return hand
+
 
 ###Returns the value of each card
 def value(card):
@@ -59,6 +61,7 @@ def hand_total(hand):
     for items in get_values:
         total += items
     return total
+
 
 ###Draws a card from the deck and removes said card from the deck to avoid doubles
 def draw_card(hand, deck):
