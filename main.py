@@ -45,9 +45,17 @@ If you want you can access the rules by running the game with the tag --help or 
             comp_games += points[1]
             continue_the_game_one = input("(press enter to cont)")
             os.system('clear')
-
             cprint(f"So far it's your {user_games} games to my {comp_games} games", "red","on_yellow")
-            want_to_play = input("Rematch (yes or no)?\n")
+            want_to_play = input("Rematch?\n")
+            while True:
+                if want_to_play == "yes" or want_to_play=="no" or want_to_play== "Yes" or want_to_play =="No" or want_to_play=="YES" or want_to_play=="NO":
+                    break
+                else:
+    ##Error handling for wrong user inputs
+                    os.system('clear')
+                    cprint(f"So far it's your {user_games} games to my {comp_games} games", "red","on_yellow")
+                    want_to_play = input("Rematch (can only choose yes or no)?\n")
+    
     cprint("Goodbye", "white", "on_blue")
     
 ### This is the rules of play of twenty_one
@@ -119,7 +127,7 @@ def twenty_one():
     ##If Dealer gets 21            
                 os.system('clear')
                 drawings.cards_display_in_game(users_hand, comps_hand, users_display, dealers_display = "no")
-                cprint("\nDealer has 21!", "white", "on_blue")
+                cprint("\nDealer has 21!", "red", "on_yellow")
                 return 0,1
             else:    
     ##Dealers logic, only hits if hand is less than 16
@@ -131,7 +139,7 @@ def twenty_one():
                     comps_total = cards_and_deck.hand_total(comps_hand)
                     comps_ace_high = cards_and_deck.check_aces(comps_hand) *10
                     comps_total_ace_high = comps_total+comps_ace_high
-                    cprint(f"Dealer draws", "white", "on_blue")
+                    cprint(f"Dealer draws", "red", "on_yellow")
                 else:
                     break
     ##If Deal busts
