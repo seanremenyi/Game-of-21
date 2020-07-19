@@ -14,26 +14,27 @@ import extras
 
 ####Dealer Aces
 ######try/except
-#####flags
-#####rules
-#####instructions
-
-
-
-
-
-
-
-
-
 
 ##This is the main function to play the game
 ##It also tracks scores and ask for rematches
 def match():
-    want_to_play = input("Want to play twenty_one? (Donn't worry, no money involved)\n")
+    ## Introduction
+    print("""Welcome to my game of Twenty One, bit different rules than you might be used to,
+    
+If you want you can access the rules by running the game with the tag --help or reading the help.md file
+    """)
+    ##Ask user if they want to play and account for different yes and no
+    want_to_play = input("So want to play my game of Twenty One? \n")
+    while True:
+        if want_to_play == "yes" or want_to_play=="no" or want_to_play== "Yes" or want_to_play =="No" or want_to_play=="YES" or want_to_play=="NO":
+            break
+        else:
+    ##Error handling for wrong user inputs
+            os.system('clear')
+            want_to_play = input("It's a yes or no question, wanna play? \n")
     user_games = 0
     comp_games = 0
-    while want_to_play =="yes":     
+    while want_to_play =="yes" or want_to_play== "Yes" or want_to_play=="YES":     
 ##twenty_one returns points for user and comp and is tracked
         if user_games == 15:
             cprint("Well Done! You've played quite a few, try running the game with the flag '--srem'", "red", "on_yellow")
@@ -42,11 +43,11 @@ def match():
             points = twenty_one()
             user_games += points[0]
             comp_games += points[1]
-            continue_the_game_one = input("")
+            continue_the_game_one = input("(press enter to cont)")
             os.system('clear')
 
             cprint(f"So far it's your {user_games} games to my {comp_games} games", "red","on_yellow")
-            want_to_play = input("Rematch?\n")
+            want_to_play = input("Rematch (yes or no)?\n")
     cprint("Goodbye", "white", "on_blue")
     
 ### This is the rules of play of twenty_one
@@ -67,7 +68,7 @@ def twenty_one():
     comps_ace_high = cards_and_deck.check_aces(comps_hand) *10
     comps_total_ace_high=comps_total+comps_ace_high
     ##allows game to go at users pace
-    continue_the_game_two = input("Lets do this (press any key to cont)")
+    continue_the_game_two = input("Lets do this (press enter to cont)")
     ##round allows user to draw cards until he hits 21
     while users_total<=21:
     ##user hits 21
@@ -111,7 +112,7 @@ def twenty_one():
         return 0,1
     ##Dealers turn, again at users pace
     else:
-        continue_the_game_three = input("Now the dealers go")
+        continue_the_game_three = input("Now the dealers go (press enter to cont)")
     ##Dealer has same rules for 21
         while comps_total<=21:
             if comps_total == 21 or (comps_total_ace_high) ==21:
