@@ -47,12 +47,15 @@ def value(card):
 
 ###Check for aces
 def check_aces(hand):
-    count = 0
-    for items in hand:
-        if items[0]=="A":
-            count+=1
-    return count
-
+    try:
+        count = 0
+        for items in hand:
+            if items[0]=="A":
+                count+=1
+        return count
+    except:
+        print("uh oh, Can't check for aces")
+        return 0
 ###Strip a hand from its suits return a list of only its values
 def only_values(hand):
     num_values = []
