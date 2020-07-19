@@ -7,8 +7,6 @@ import os
 import sys
 import extras
 
-####Dealer Aces
-
 
 ##This is the main function to play the game
 ##It also tracks scores and ask for rematches
