@@ -31,17 +31,22 @@ import sys
 ##It also tracks scores and ask for rematches
 def match():
     want_to_play = input("Want to play twenty_one? (Donn't worry, no money involved)\n")
-    user_games = 0
+    user_games = 15
     comp_games = 0
     while want_to_play =="yes":     
 ##twenty_one returns points for user and comp and is tracked
-        points = twenty_one()
-        user_games += points[0]
-        comp_games += points[1]
-        continue_the_game_one = input("")
-        os.system('clear')
-        cprint(f"So far it's your {user_games} games to my {comp_games} games", "red","on_yellow")
-        want_to_play = input("Rematch?\n")
+        if user_games == 15:
+            cprint("Well Done! You've played quite a few, try running the game with the flag '--srem'", "red", "on_yellow")
+            break
+        else:
+            points = twenty_one()
+            user_games += points[0]
+            comp_games += points[1]
+            continue_the_game_one = input("")
+            os.system('clear')
+
+            cprint(f"So far it's your {user_games} games to my {comp_games} games", "red","on_yellow")
+            want_to_play = input("Rematch?\n")
     cprint("Goodbye", "white", "on_blue")
     
 ### This is the rules of play of twenty_one
@@ -62,7 +67,7 @@ def twenty_one():
     comps_ace_high = cards_and_deck.check_aces(comps_hand) *10
     comps_total_ace_high=comps_total+comps_ace_high
     ##allows game to go at users pace
-    continue_the_game_two = input("Lets do this")
+    continue_the_game_two = input("Lets do this (press any key to cont)")
     ##round allows user to draw cards until he hits 21
     while users_total<=21:
     ##user hits 21
