@@ -37,7 +37,7 @@ If you want you can access the rules by running the game with the tag --help or 
     while want_to_play =="yes" or want_to_play== "Yes" or want_to_play=="YES":     
 ##twenty_one returns points for user and comp and is tracked
         if user_games == 15:
-            cprint("Well Done! You've played quite a few, try running the game with the flag '--srem'", "red", "on_yellow")
+            cprint("Well Done! You've played quite a few, try running the game with the flag '--srem'", "white", "on_blue")
             break
         else:
             points = twenty_one()
@@ -54,7 +54,7 @@ If you want you can access the rules by running the game with the tag --help or 
     ##Error handling for wrong user inputs
                     os.system('clear')
                     cprint(f"So far it's your {user_games} games to my {comp_games} games", "red","on_yellow")
-                    want_to_play = input("Rematch (can only choose yes or no)?\n")
+                    want_to_play = input("Rematch (You can only choose yes or no)?\n")
     
     cprint("Goodbye", "white", "on_blue")
     
