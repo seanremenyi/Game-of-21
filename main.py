@@ -163,8 +163,8 @@ def twenty_one():
                 return who_won
 
 if "--help" in sys.argv:
-    print("extras.help()")
-elif "--secret" in sys.argv:
-    print("secret message")
+    print(extras.help())
+elif "--srem" in sys.argv:
+    print(extras.secret())
 else:
     match()

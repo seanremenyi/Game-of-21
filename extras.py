@@ -1,3 +1,4 @@
+
 def help():
     print("""
 Help
@@ -28,3 +29,36 @@ Instructions
 * "yes" to play again or "no" for the goodbye message)
 
 """)
+    return ""
+
+
+def secret():
+    print("""
+
+Wow You Won 15 Games, You Must Like This Game, Well I Must Say
+
+ ____     ____     ____     ____     ____     ____     ____     ____
+|    |   |    |   |    |   |    |   |    |   |    |   |    |   |    |
+|  C |   |  O |   |  N |   |  G |   |  R |   | A  |   |  T |   |  S |
+|____|   |____|   |____|   |____|   |____|   |____|   |____|   |____|
+ 
+                            ____  
+                           |    |  
+                           |  & |  
+                           |____| 
+
+          ____     ____     ____     ____     ____
+         |    |   |    |   |    |   |    |   |    |
+         |  T |   |  H |   |  A |   |  N |   |  K |
+         |____|   |____|   |____|   |____|   |____|          
+
+                   ____     ____     ____
+                  |    |   |    |   |    |
+                  |  Y |   |  O |   |  U |  
+                  |____|   |____|   |____|         
+    
+          
+                        For Playing!  
+""")
+    return ""
+
