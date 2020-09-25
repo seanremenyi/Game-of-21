@@ -15,8 +15,7 @@ This is a game of Twenty one built by Sean Remenyi to be run in the terminal and
     1. `sudo apt-get install python3-pip`
     2. `sudo apt-get install python3-venv`
     3. `python3 -m venv venv`
-    4. `sudo apt install python3-pip`
-    5. `pip install termcolor`
+    4. `pip install termcolor`
 5. Run the app by using
     `python main.py`
 
