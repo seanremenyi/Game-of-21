@@ -11,10 +11,9 @@ This is a game of Twenty one built by Sean Remenyi to be run in the terminal and
 3. If not running python 3.8, run the following bash commands
     1. `sudo apt update`
     2. `sudo apt install python3.8`
-4. Create a virtual enviornment
-    1. `sudo apt-get install python3-pip`
-    2. `pip3 install termcolor`
-5. Run the app by using
+    3. `sudo apt-get install python3-pip`
+    4. `pip3 install termcolor`
+4. Run the app by using
     `python main.py`
 
 # Purpose and Scope
