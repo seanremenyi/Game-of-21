@@ -2,8 +2,23 @@
 
 This is a game of Twenty one built by Sean Remenyi to be run in the terminal and coded with the Python v 3.8 language.
 
+#To Play
 
+##### For the App,
 
+1. Create a directory to clone the git repo into
+2. Clone git repo
+3. If not running python 3.8, run the following bash commands
+    1. `sudo apt update`
+    2. `sudo apt install python3.8`
+4. Create a virtual enviornment
+    1. `sudo apt-get install python3-pip`
+    2. `sudo apt-get install python3-venv`
+    3. `python3 -m venv venv`
+    4. `sudo apt install python3-pip`
+    5. `pip install termcolor`
+5. Run the app by using
+    `python main.py`
 
 # Purpose and Scope
 This application gives people a no-card-needed way to play twenty-one which is a game of BlackJack minus the gambling aspect. It’s purpose is to entertain and to give anyone who would like to play it, a way to break up their day. 
