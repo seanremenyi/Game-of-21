@@ -12,7 +12,7 @@ This is a game of Twenty one built by Sean Remenyi to be run in the terminal and
     1. `sudo apt update`
     2. `sudo apt install python3.8`
     3. `sudo apt-get install python3-pip`
-    4. `pip3 install termcolor`
+    4. `sudo apt install python3-termcolor`
 4. Run the app by using
     `python main.py`
 
